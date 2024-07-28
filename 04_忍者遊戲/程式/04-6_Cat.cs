@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Cat : MonoBehaviour
 {
-    public GameObject gameManager; //置放GameManager物件的公開變數
+    public GameManager gameManager;
+    public int life = 10;
 
+    // Start is called before the first frame update
     void Start()
     {
+        
     }
 
+    // Update is called once per frame
     void Update()
     {
         // 點擊左方向鈕時
@@ -25,10 +29,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    // 當貓咪碰到其他有碰撞體的東西時
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        gameManager.GetComponent<GameManager>().DecreaseHp(); // 扣血
+        // 判斷碰撞的碰撞體有沒有帶有標籤「Arrow」
+        if (collision.gameObject.tag == "Arrow")
+        {
+            gameManager.DecreaseHp();
+            life -= 1;
+            if (life <= 0)
+                Destroy(gameObject);
+        }
     }
 
     // 當玩家按下畫面左按鍵時，貓咪往左移動「3」
