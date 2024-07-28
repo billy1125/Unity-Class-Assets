@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Cat : MonoBehaviour
 {
     Rigidbody2D rigid2D;          // 用來放貓咪的剛體公開變數
     float jumpForce = 680.0f;     // 跳躍力預設值

@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; // 使用 LoadScene 必要的引用程式敘述 !!
 
-public class Player : MonoBehaviour
+public class Cat : MonoBehaviour
 {
     Rigidbody2D rigid2D;          // 用來放貓咪的剛體公開變數
     Animator animator;            // 用來放貓咪的動畫控制器公開變數
@@ -56,11 +55,4 @@ public class Player : MonoBehaviour
             animator.speed = 1.0f;
         }
     }
-
-    // 抵達終點
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        SceneManager.LoadScene("ClearScene");
-    }
-
 }
