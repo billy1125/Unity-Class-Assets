@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Cat : MonoBehaviour
 {
-    Rigidbody2D rigid2D;          // 用來放貓咪的剛體公開變數
-    Animator animator;            // 用來放貓咪的動畫控制器公開變數
+    Rigidbody2D rigid2D;          // 用來放貓咪的剛體變數
+    Animator animator;            // 用來放貓咪的動畫控制器變數
     public float jumpForce = 680.0f;     // 跳躍力預設值
     public float walkForce = 30.0f;      // 移動推力預設值
     public float maxWalkSpeed = 2.0f;    // 限制移動的速度值
@@ -21,7 +21,7 @@ public class Cat : MonoBehaviour
         // 跳躍
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            animator.SetTrigger("JumpTrigger"); // 觸發跳躍動畫
+            animator.SetTrigger("Jump"); // 觸發跳躍動畫
             rigid2D.AddForce(transform.up * jumpForce);
         }
 

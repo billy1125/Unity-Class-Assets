@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Cat : MonoBehaviour
 {
-    Rigidbody2D rigid2D;          // 用來放貓咪的剛體公開變數
+    Rigidbody2D rigid2D;          // 用來放貓咪的剛體變數
+	Animator animator;            // 用來放貓咪的動畫控制器變數
+
     public float jumpForce = 680.0f;     // 跳躍力預設值
     public float walkForce = 30.0f;      // 移動推力預設值
     public float maxWalkSpeed = 2.0f;    // 限制移動的速度值
@@ -12,6 +14,7 @@ public class Cat : MonoBehaviour
     void Start()
     {
         rigid2D = GetComponent<Rigidbody2D>();  // 取得貓咪的剛體
+        animator = GetComponent<Animator>();    // 取得貓咪的動畫控制器
     }
 
     void Update()
@@ -41,5 +44,8 @@ public class Cat : MonoBehaviour
         {
             transform.localScale = new Vector3(key, 1, 1);
         }
+		
+		// 依遊戲角色的速度改變動畫的速度
+        animator.speed = speedx / 2.0f;
     }
 }
