@@ -13,6 +13,6 @@ public class Camera : MonoBehaviour
     void Update()
     {
         Vector3 CatPos = Cat.transform.position;
-        transform.position = new Vector3(transform.position.x, playerPos.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x, CatPos.y, transform.position.z);
     }
 }
