@@ -9,21 +9,24 @@ public class EnemyPlane : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 5); //設定10秒後敵機物件被刪除
+        //敵機位置如果低於y軸6，就刪除自己
+        if (transform.position.y < 6) {
+            Destroy(gameObject);
+        }        
     }
 
     // Update is called once per frame
     void Update()
     {
         //transform.position += new Vector3(0, -1 * MoveSpeed, 0); 
-        transform.Translate(Vector3.down * MoveSpeed) * Time.deltaTime; //敵機會不斷往下移動，使用Translate
+        transform.Translate(Vector3.down * MoveSpeed * Time.deltaTime) ; //敵機會不斷往下移動，使用Translate
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Bullet") //如果碰撞的標籤是Bullet
         {
-            Destroy(gameObject); //刪除外星怪物物件
+            Destroy(gameObject); //刪除敵機物件
         }
     }
 }

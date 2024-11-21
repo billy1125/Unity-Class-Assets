@@ -16,10 +16,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Alien") //如果碰撞的標籤是Bullet
-        {
-            Destroy(gameObject); //刪除子彈物件
-        }
+		Destroy(gameObject); //刪除子彈物件
     }
-
 }
