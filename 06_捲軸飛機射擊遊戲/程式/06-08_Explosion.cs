@@ -9,10 +9,4 @@ public class Explosion : MonoBehaviour
     {
         Destroy(gameObject, 2); // 兩秒後爆炸效果就消失
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
