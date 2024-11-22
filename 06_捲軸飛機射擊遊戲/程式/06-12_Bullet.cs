@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public GameObject ExplosionPrefab;
+    public float moveSpeed = 1; // 移動速度
 
     void Start()
     {
@@ -13,19 +13,15 @@ public class Bullet : MonoBehaviour
 
     void FixedUpdate()
     {
-        gameObject.transform.position += new Vector3(0, 0.5f, 0); //子彈會不斷往上移動
+        gameObject.transform.position += new Vector3(0, moveSpeed, 0) * Time.deltaTime; //子彈會不斷往上移動
     }
-
+	
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy") //如果碰撞的標籤是Enemy
+        if (collision.tag != "Wall") //如果碰撞的標籤不是Wall(的以外物件)
         {
             Instantiate(ExplosionPrefab, transform.position, transform.rotation); //在子彈碰撞的位置產生爆炸
-            Destroy(gameObject); //刪除子彈物件
         }
-        else if (collision.tag == "Wall") //如果碰撞的標籤是Wall
-        {
-            Destroy(gameObject);
-        }
+		Destroy(gameObject); //刪除子彈物件
     }
 }
