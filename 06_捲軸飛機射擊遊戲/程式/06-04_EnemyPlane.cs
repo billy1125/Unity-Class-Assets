@@ -9,8 +9,8 @@ public class EnemyPlane : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //敵機位置如果低於y軸6，就刪除自己
-        if (transform.position.y < 6) {
+        //敵機位置如果低於y軸-6，就刪除自己
+        if (transform.position.y < -6) {
             Destroy(gameObject);
         }        
     }
