@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float moveSpeed = 1; // 移動速度
+    public GameObject ExplosionPrefab; // 爆炸效果的預製物件
 
     void Start()
     {
