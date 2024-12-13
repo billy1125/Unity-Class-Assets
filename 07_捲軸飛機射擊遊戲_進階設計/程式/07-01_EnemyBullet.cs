@@ -18,20 +18,12 @@ public class EnemyBullet : MonoBehaviour
         transform.position += new Vector3(0, -5, 0) * Time.deltaTime; //子彈會不斷往下移動
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            Instantiate(ExplosionPrefab, transform.position, transform.rotation);
-            Destroy(gameObject);
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Wall") //如果碰撞的標籤是Wall
+        if (collision.gameObject.tag == "Player") // 碰到Player標籤則產生爆炸
         {
-            Destroy(gameObject);
+            Instantiate(ExplosionPrefab, transform.position, transform.rotation);
         }
+        Destroy(gameObject);
     }
 }
