@@ -28,7 +28,8 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        Instantiate(explsionPrefab, transform.position, Quaternion.identity);
+        if (explsionPrefab != null) 
+            Instantiate(explsionPrefab, transform.position, Quaternion.identity);
         OnEnemyDeath?.Invoke(this);
         // 可以添加死亡效果、掉落物品等
         Destroy(gameObject);
